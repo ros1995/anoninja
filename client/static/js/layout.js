@@ -1,5 +1,9 @@
+const { sendPost, getPost } = require('./api.js')
+
+
 window.addEventListener('hashchange', updateContent);
 window.addEventListener('load', updateContent);
+
 
 function updateContent() {
     const id = window.location.hash.substring(1)
@@ -30,4 +34,8 @@ function renderForm(){
         form.onsubmit = sendPost;
         root.appendChild(form);
     }
+
+module.exports = {
+    renderPost, renderForm, updateContent
+}
     

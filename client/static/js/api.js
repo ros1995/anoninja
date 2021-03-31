@@ -28,3 +28,7 @@ async function sendPost(e){
         console.warn(err);
     }
 }
+
+module.exports = {
+    sendPost, getPost
+}

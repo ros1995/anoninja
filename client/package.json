@@ -1,0 +1,21 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"watchify ./static/js/layout.js -o bundle.js\" \"http-server\"",
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.6.3"
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.0",
+    "watchify": "^4.0.0"
+  }
+}
