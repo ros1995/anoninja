@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "html-entities": "^2.3.2",
     "jest": "^26.6.3"
   },
   "devDependencies": {

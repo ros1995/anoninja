@@ -1,5 +1,5 @@
 const { sendPost, getPost } = require('./api.js')
-
+const { encode } = require('html-entities');
 
 window.addEventListener('hashchange', updateContent);
 window.addEventListener('load', updateContent);
@@ -17,9 +17,9 @@ async function renderPost(id){
     const postData = await getNewPost(id)
     root.innerHTML = `
     <div class="post-cont">
-    <h2>${postData.title}</h2>
-    <h3 class="post" id="name">${postData.pseudonym}</h3><span> ● ${prettyDate(postData.date)}</span>
-    <p>${postData.content}<p>
+    <h2>${encode(postData.title)}</h2>
+    <h3 class="post" id="name">${encode(postData.pseudonym)}</h3><span> ● ${prettyDate(postData.date)}</span>
+    <p>${encode(postData.content)}<p>
     </div>`
 }
 
