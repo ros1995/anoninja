@@ -1,2 +1,7 @@
 .DS_Store
+<<<<<<< HEAD
 node_modules
+coverage
+=======
+node_modules
+>>>>>>> 4cdc7a7403ada2d9f0f82caebbabf1759f51fbd6
