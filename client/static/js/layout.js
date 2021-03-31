@@ -27,11 +27,7 @@ function renderForm(){
             Object.entries(f.attributes).forEach(([a, v]) => field.setAttribute(a, v))
             form.appendChild(field);
         })
-        form.onsubmit = submitPost;
+        form.onsubmit = sendPost;
         root.appendChild(form);
     }
     
-function submitPost(e){
-    e.preventDefault()
-    console.log(JSON.stringify(Object.fromEntries(new FormData(e.target))))
-}
