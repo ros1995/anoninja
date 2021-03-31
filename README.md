@@ -1,4 +1,4 @@
-# Anoninja
+# Anoninja :octocat:
 
 Inspired by [Telegraph](https://telegra.ph/), this app allows <del>users</del> ninjas to write down their thoughts whilst remaining anonymous.
 
@@ -17,7 +17,7 @@ Posts are stored in a MongoDB database and can be accessed through an API. This 
 
 ## Technologies
 
--   JavaScript, CSS and HTML
+-   HTML, CSS and JavaScript
     -   Dependencies include: Express, Cors, Nodemon, MongoDB, Watchify, Concurrently
 -   Test suite: Jest
 
