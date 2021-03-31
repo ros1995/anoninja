@@ -7,28 +7,27 @@ window.addEventListener('load', updateContent);
 
 function updateContent() {
     const id = window.location.hash.substring(1)
-    id.length > 0 ? getNewPost(id) : renderForm()
+    id.length > 0 ? renderPost(id) : renderForm()
 }
 
-function renderPost(id){
-    // const postData = await getPost(1)
+async function renderPost(id){
     const root = document.getElementById('root')
-    root.textContent = id
+    const postData = await getNewPost(id)
+    root.innerText = JSON.stringify(postData)
 }
 
-function getNewPost(id){
-    const postData = await getPost(1)
+async function getNewPost(id){
+    const postData = await getPost(id)
     return postData
 }
 
-const fields = [
-    { tag: 'input', attributes: {autocomplete : "off", required: true, type: 'text', name: 'title', placeholder: 'Title' } },
-    { tag: 'input', attributes: {autocomplete : "off", type: 'text', name: 'pseudonym', placeholder: 'Ninja name...' } },
-    { tag: 'textarea', attributes: { name: 'content', placeholder: 'Ninja post...' } },
-    { tag: 'input', attributes: { type: 'submit', value: 'submit' } }
-]
-
 function renderForm(){
+    const fields = [
+        { tag: 'input', attributes: {autocomplete : "off", required: "true", type: 'text', name: 'title', placeholder: 'Title' } },
+        { tag: 'input', attributes: {autocomplete : "off", type: 'text', name: 'pseudonym', placeholder: 'Ninja name...' } },
+        { tag: 'textarea', attributes: { name: 'content', placeholder: 'Ninja post...' } },
+        { tag: 'input', attributes: { type: 'submit', value: 'submit' } }
+    ]
     const root = document.getElementById('root')
     const form = document.createElement('form');
         fields.forEach(f => {

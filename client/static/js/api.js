@@ -18,12 +18,8 @@ async function sendPost(e){
         }
         
         const response = await fetch('http://localhost:3000/posts', options);
-        const { id, err } = await response.json();
-        if(err) { 
-            throw Error(err) 
-        } else {
-            window.location.hash = `#${id}`
-        }
+        const data = await response.json();
+        window.location.hash = `#${data}`
     } catch (err) {
         console.warn(err);
     }
