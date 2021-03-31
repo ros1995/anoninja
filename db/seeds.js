@@ -1,18 +1,18 @@
-const db = connect("mongodb://localhost:27017/anoninja");
+const db = connect("mongodb://localhost:27017/anoninjaDB");
 
 db.posts.drop();
 
 db.posts.insertMany([
     {
-        id: 1,
         title: "Ninjas",
         pseudonym: "Ninja",
-        subject: "Ninjas are better than Pirates",
+        content: "Ninjas are better than Pirates",
+        date: new Date(),
     },
     {
-        id: 2,
         title: "Pirates",
         pseudonym: "Pirate",
-        subject: "Pirates are better than ninjas",
+        content: "Pirates are better than ninjas",
+        date: new Date(),
     },
 ]);
