@@ -7,12 +7,18 @@ window.addEventListener('load', updateContent);
 
 function updateContent() {
     const id = window.location.hash.substring(1)
-    id.length > 0 ? renderPost(id) : renderForm()
+    id.length > 0 ? getNewPost(id) : renderForm()
 }
 
-function renderPost(postData){
+function renderPost(id){
+    // const postData = await getPost(1)
     const root = document.getElementById('root')
-    root.textContent = postData
+    root.textContent = id
+}
+
+function getNewPost(id){
+    const postData = await getPost(1)
+    return postData
 }
 
 const fields = [
