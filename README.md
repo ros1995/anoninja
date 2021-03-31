@@ -58,4 +58,4 @@ Posts are stored in a MongoDB database and can be accessed through an API. This 
 
 ## Bugs
 
--   No known bugs
+-   Should display an error if no post is found from the url
