@@ -11,7 +11,7 @@ Posts are stored in a MongoDB database and can be accessed through an API. This 
 ### Usage
 
 -   Open your terminal/CLI and navigate to the `anoninja` folder
-*** ensure docker desktop app is running ***
+***ensure docker desktop app is running***
 -   Run `docker-compose up` to start the API and DB services
 -   Run `docker-compose down` to stop the services and keep data
 -   Run `docker-compose --volumes --remove-orphans` to stop the services and remove all artifacts
