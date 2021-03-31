@@ -6,6 +6,8 @@ window.addEventListener('load', updateContent);
 
 
 function updateContent() {
+    const root = document.getElementById('root')
+    root.innerHTML = ''
     const id = window.location.hash.substring(1)
     id.length > 0 ? renderPost(id) : renderForm()
 }
@@ -13,7 +15,20 @@ function updateContent() {
 async function renderPost(id){
     const root = document.getElementById('root')
     const postData = await getNewPost(id)
-    root.innerText = JSON.stringify(postData)
+    root.innerHTML = `
+    <div class="post-cont">
+    <h2>${postData.title}</h2>
+    <h3 class="post" id="name">${postData.pseudonym}</h3><span> ● ${prettyDate(postData.date)}</span>
+    <p>${postData.content}<p>
+    </div>`
+}
+
+function prettyDate(date) {
+    const jsDate = new Date(Date.parse(date))
+    const day = jsDate.getDate()	
+    const month = jsDate.getMonth() + 1
+    const year = jsDate.getFullYear()
+    return `${day}-${month}-${year}`
 }
 
 async function getNewPost(id){
@@ -23,9 +38,9 @@ async function getNewPost(id){
 
 function renderForm(){
     const fields = [
-        { tag: 'input', attributes: {autocomplete : "off", required: "true", type: 'text', name: 'title', placeholder: 'Title' } },
-        { tag: 'input', attributes: {autocomplete : "off", type: 'text', name: 'pseudonym', placeholder: 'Ninja name...' } },
-        { tag: 'textarea', attributes: { name: 'content', placeholder: 'Ninja post...' } },
+        { tag: 'input', attributes: {autocomplete : "off", id: "title", required: "true", type: 'text', name: 'title', placeholder: 'Title' } },
+        { tag: 'input', attributes: {autocomplete : "off", id: "name", type: 'text', name: 'pseudonym', placeholder: 'Ninja name...' } },
+        { tag: 'textarea', attributes: { name: 'content', required: "true", placeholder: 'Ninja post...' } },
         { tag: 'input', attributes: { type: 'submit', value: 'submit' } }
     ]
     const root = document.getElementById('root')
