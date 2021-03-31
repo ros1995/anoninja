@@ -12,20 +12,20 @@ class Post {
 
     // trying to get all posts so that I can find out the id of each post
     static get all() {
-        return new Promise (async (resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             try {
                 const db = await init();
                 const postsData = await db.collection("posts").find().toArray();
                 const posts = postsData.map(
-                    p => new Post({ ...p, id: p.id})
+                    (p) => new Post({ ...p, id: p._id })
                 );
                 resolve(posts);
-            } catch(err) {
+            } catch (err) {
                 console.log(err);
                 reject("Cannot retrieve all posts");
             }
-        })
-    };
+        });
+    }
 
     static findById(id) {
         return new Promise(async (resolve, reject) => {
