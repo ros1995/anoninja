@@ -14,7 +14,7 @@ services:
       - type: bind
         source: ./api
         target: /code
-    command: bash -c "npm install && npm dev"
+    command: bash -c "npm install && npm run dev"
 
   db:
     image: mongo:latest

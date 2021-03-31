@@ -46,11 +46,12 @@ class Post {
     static create(postData) {
         return new Promise(async (resolve, reject) => {
             try {
+                console.log(postData)
                 const db = await init();
-                const postData = await db
+                const sendPost = await db
                     .collection("posts")
-                    .insertOne({ postData });
-                const newPost = new Post(result.ops[0]);
+                    .insertOne({ ...postData, date: new Date()});
+                const newPost = new Post(sendPost.ops[0]);
                 resolve(newPost);
             } catch (error) {
                 reject("Error publishing post");
