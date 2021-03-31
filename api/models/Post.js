@@ -43,7 +43,7 @@ class Post {
         });
     }
 
-    static create(postData) {
+    static async create(postData) {
         return new Promise(async (resolve, reject) => {
             try {
                 console.log(postData)
@@ -51,8 +51,7 @@ class Post {
                 const sendPost = await db
                     .collection("posts")
                     .insertOne({ ...postData, date: new Date()});
-                const newPost = new Post(sendPost.ops[0]);
-                resolve(newPost);
+                resolve(sendPost.ops[0]._id);
             } catch (error) {
                 reject("Error publishing post");
             }
