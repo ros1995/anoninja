@@ -1,9 +1,10 @@
 const Post = require("../models/Post");
 
-// just to check posts route is working - not sure if we want to get all posts here? if so then we can add in await Posts.all and then update in the model
+// trying to get all posts so that I can find out the id of each post
 async function index(req, res) {
     try {
-        res.send("This is the posts route");
+        const posts = await Post.all;
+        res.status(200).json(posts);
     } catch (error) {
         throw new Error(error);
     }
