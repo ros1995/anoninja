@@ -1,5 +1,7 @@
 # Anoninja :octocat:
 
+![](demo-anoninja.gif)
+
 Inspired by [Telegraph](https://telegra.ph/), this app allows <del>users</del> ninjas to write down their thoughts whilst remaining anonymous.
 
 Posts are stored in a MongoDB database and can be accessed through an API. This app was created by [@cwesterduin](https://github.com/cwesterduin) and [@roselynle](https://github.com/roselynle) as part of Futureproof's Coding Challenge.
@@ -20,16 +22,17 @@ Posts are stored in a MongoDB database and can be accessed through an API. This 
 ## Technologies
 
 -   HTML, CSS and JavaScript
-    -   Dependencies include: Express, Cors, Nodemon, MongoDB, Watchify, Concurrently
+    -   Dependencies include: express, cors, nodemon, mongoDB, watchify, concurrently
 -   Test suite: Jest
 
 ## Process
 
 -   Split the team into into two with one person focusing on client side and the other on server side
--   Looking at the deisgn/layout of [Telegraph](https://telegra.ph/) and discussed how we wanted the user interface to look like
+-   Looked at the design/layout of [Telegraph](https://telegra.ph/) for inspiration on the user interface
 -   Made use of the GitHub project board to keep on top of required tasks 
+-   Set up the database using MongoDB
 -   Implemented the required functionalities, and debugged any issues
--   Improved the user interface by adding styling
+-   Added styling
 
 ## Task Requirements
 
@@ -43,17 +46,16 @@ Posts are stored in a MongoDB database and can be accessed through an API. This 
 
 ### Wins
 
--   Acheieved a minimum viable product that met the task requirements
--   User is able to create a post and be redirected to their new post
--   Managed to connect API to database, and improved our knowledge and understanding of MongoDB
+-   Achieved a minimum viable product that met the task requirements - user is able to create a post and be redirected to their new post
+-   Connected API to database, and improved our knowledge and understanding of MongoDB
+-   Managed to containerise our app using Docker
 -   Successfully connected server to client
 -   Good git flow - appropriate division of tasks and no issues with conflicts 
-
 
 ### Challenges
 
 -   Not having enough time to perform (optional) unit/integration. However these can be done at a later date.
--   Not knowing how to send the id from server back to the client to redirect users to their new post. This was later solved by checking the MongoDB documentation
+-   Not knowing how to send the id from the server back to the client to redirect users to their new post. This was later solved by checking the MongoDB documentation
 -   Getting errors for sending new posts - this was due to errors in the create post function in the model 
 
 ## Bugs
