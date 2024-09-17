@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background: rgb(34, 33, 31);
+    color: rgb(248, 244, 234);
+    margin: 0;
+    padding: 0;
+}
+
+h1, h1 > a {
+    font-family: 'Rock Salt', cursive;
+    color: rgb(235, 43, 43);
+    text-align: center;
+    text-decoration: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+input:not(input[type="submit"]), textarea {
+    background: transparent;
+    min-height: 45px;
+    outline: none;
+    border: none;
+    color: rgb(248, 244, 234);
+    font-size: 1.2rem;
+    width: 50%;
+    min-width: 300px;
+    font-family: 'Raleway', sans-serif;
+    margin-top: .25rem;
+    margin-bottom: 1rem;
+}
+input:first-of-type {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+input[type="submit"] {
+    border: solid 1px rgb(221, 213, 213);
+    color: rgb(248, 244, 234);
+    cursor: pointer;
+    border-radius: 4px;
+    background: transparent;
+    padding: .5rem 2rem;
+    font-size: 1.2rem;
+}
+input[type="submit"]:hover {
+    background: #333;
+}
+
+#title {font-size: 2rem}
+#name {
+    font-family: 'Rock Salt', cursive;
+    color: rgb(235, 43, 43);
+}
+.post-cont{
+    width: 50%;
+    min-width: 300px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+.post#name {
+    margin: -2rem 0 0 2rem;
+    display: inline-block;
+}
+.post-cont{
+    width: 50%;
+    min-width: 300px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+.post-cont span {
+    font-size: 1rem;
+    color: rgb(221, 213, 213)
+}
+

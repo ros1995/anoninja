@@ -1,0 +1,43 @@
+version: "3"
+services:
+  client:
+    container_name: dev_client
+    build: ./client
+    image: node:12.18.4
+    ports: 
+      - 8080:8080
+    working_dir: /code
+    volumes:
+      - type: bind
+        source: ./client
+        target: /code
+    command: bash -c "npm install && npm run dev"
+
+  server:
+    image: node:12.18.4
+    working_dir: /code
+    ports: 
+      - 3000:3000
+    environment: 
+      - DB_NAME=anoninjaDB
+      - DB_CONNECTION=mongodb://anoninjaTeam:password@db:27017
+    depends_on:
+      - db
+    volumes:
+      - type: bind
+        source: ./api
+        target: /code
+    command: bash -c "npm install && npm run dev"
+
+  db:
+    image: mongo:latest
+    volumes:
+      - "dbdata:/var/lib/mongodb/data"
+      - "./db/seeds.js:/docker-entrypoint-initdb.d/seeds.js:ro"
+
+    environment: 
+      - MONGO_INITDB_ROOT_USERNAME=anoninjaTeam
+      - MONGO_INITDB_DATABASE=anoninjaDB
+      - MONGO_INITDB_ROOT_PASSWORD=password
+volumes:
+  dbdata:
